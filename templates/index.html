@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>File Encryption and Decryption</title>
+  <link rel="stylesheet" href="/static/sample.css">
+  <script src="/static/sample.js"></script>
+  <script src="https://kit.fontawesome.com/74c0b2949d.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+  <div class="stars">
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+  </div>
+  <h1>The Best Solution Is Here</h1>
+  <h3>Encrypt your File and Text</h3>
+  <p>We help you to Encrypt Your text and files as well as we also help to decrypt your Encrypted text and file</p>
+  <p class="p1">So don't lose your secret information. Keep them encrypted with our help...</p>
+ 
+  <div class="lock-container">
+    <div class="lock">
+      <div class="keyhole"></div>
+    </div>
+  </div>
+  
+  <a onclick="scrollToSection('second')">
+    <span class="material-symbols-outlined">mouse</span>
+  </a>
+  
+  <section class="inputs" id="second">
+    <div class="container">
+      <form class="textplace" method="post" action="/encrypt-text">
+        <div class="input-section">
+          <label for="text">Enter text for encryption and decryption:</label>
+          <textarea id="text" name="text" rows="4" cols="50" required="">{{result}}</textarea>
+          <div class="file-input-container">
+            <label class="label-text" for="file">Choose an File</label>
+            <input class="file-input" type="file" id="file" name="file" accept=".txt" onchange="readFile(this)" />
+          </div>
+        </div>
+        <div class="input-section">
+          <label for="key">Enter secret key for encryption and decryption:</label>
+          <input type="password" id="key" name="key" required="" value="">
+        </div>
+        
+        <div class="buttons">
+          <button onclick="valid();" name="but" value="encrypt" id="encryptTextBtn">Encrypt Text</button>
+          <button onclick="valid();" name="but" value="decrypt" id="decryptTextBtn">Decrypt Text</button>
+        </div>
+      </form>
+      
+    <form class="fileplace" action="/encrypt-decrypt-image" enctype="multipart/form-data" method="post"> 
+        <div class="input-section">
+          <label for="text">Select File for encryption and decryption:</label>
+          <textarea id="file1" name="text1" rows="4" cols="50">{{result1}}</textarea>
+          <div class="file-input-container">
+            <label class="label-text" for="select_image">Choose an image</label>
+            <input type="file" id="select_image" class="file-input" name="image" onchange="putImage()" /> 
+          </div>
+        </div>
+        
+        <div class="input-section">
+          <label for="key1">Enter secret key for encryption and decryption:</label>
+          <input type="password" id="pass" name="key1" required="" value="">
+        </div>
+        
+        <div class="buttons">
+          <button onclick="valid1();" name="but" value="encrypt" id="encryptImageBtn">Encrypt Image</button>
+          <button onclick="valid1();" name="but" value="decrypt" id="decryptImageBtn">Decrypt Image</button>
+        </div>
+        
+        <img style="border: 2px solid black;outline: none;" id="target" />
+      </form>
+      
+        <button id="resetBtn" onclick="clearvalue();">Reeset</button>
+    </div>
+  </section>
+
+  <script>
+    function readFile(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+          var fileContent = e.target.result;
+          document.getElementById('text').value = fileContent;
+        };
+
+        reader.readAsText(input.files[0]);
+      }
+    }
+  </script>
+</body>
+</html>
+
